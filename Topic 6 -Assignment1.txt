@@ -1,0 +1,34 @@
+import React, { Component } from 'react'
+
+export class App extends Component {
+  render() {
+    return (
+      <div>
+        <SubComponent companyName="CDC5" companyLocation="Chennai"/>
+      </div>
+    )
+  }
+}
+
+class SubComponent extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      companyName:props.companyName?props.companyName:"WIPRO",
+      companyLocation:props.companyLocation?props.companyLocation:"BANGALORE"
+
+    }
+  }
+  render(){
+    return(
+      <>
+      Company Name : {this.state.companyName} <br />
+      Company Location : {this.state.companyLocation}
+      </>
+    )
+  }
+  
+}
+
+export default App
+

@@ -1,0 +1,29 @@
+import React, { Component } from 'react'
+import propTypes from 'prop-types'
+export class App extends Component {
+
+  render() {
+    return (
+      <SubClass name="Narasimha" age={18} preferredCities={["Chennai","Bangalore"]}/>
+    )
+  }
+}
+
+class SubClass extends Component{
+ render(){
+   return(
+    <>
+      Name : {this.props.name} <br />
+      Preferred Cities : {this.props.preferredCities} <br />
+      Age : {this.props.age}
+    </>)
+ }
+}
+SubClass.propTypes={
+    name: propTypes.string,
+    preferredCities: propTypes.array,
+    age:propTypes.number
+}
+
+
+export default App

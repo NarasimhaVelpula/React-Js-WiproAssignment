@@ -1,0 +1,49 @@
+import React, { Component } from 'react'
+
+export class App extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      displayDiv:true
+    }
+  }
+  handleChange=()=>{
+    
+    this.setState({displayDiv:false})
+  }
+  render() {
+
+    if(this.state.displayDiv){
+      return(
+        <SubComponent changeFunction={this.handleChange} />
+      )
+    }
+    return (
+      <div>
+        welcome here
+      </div>
+    )
+  }
+}
+
+class SubComponent extends Component{
+  componentWillUnmount(){
+    console.log("component will unmount called")
+
+  }
+  componentDidMount(){
+    console.log("component Did Mount Called")
+  }
+  componentWillMount(){
+    console.log("component Will mount")
+  }
+  
+  render(){
+    console.log(this.props)
+    return(
+    <div onClick={this.props.changeFunction}>
+      DIv tag for sub component
+    </div>
+  )}
+}
+export default App

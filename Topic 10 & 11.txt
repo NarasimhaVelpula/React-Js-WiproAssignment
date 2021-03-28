@@ -1,0 +1,37 @@
+import React, { Component } from 'react'
+
+export class App extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      physics:0,
+      chemistry:0,
+      biology:0,
+      mathematics:0
+    }
+  }
+  handleSubmit=(e)=>{
+    e.preventDefault()
+    let avg=(this.state.physics+this.state.chemistry+this.state.biology+this.state.mathematics)/4
+    alert("Average : "+avg)
+
+  }
+  handleChange=(e)=>{
+    this.setState({[e.target.name]:parseInt(e.target.value)})
+  }
+  render() {
+    return (
+      <div>
+        <form>
+         Physics <input type="number" name="physics" value={this.state.physics} onChange={this.handleChange} /> <br />
+         Chemistry <input type="number" name="chemistry" value={this.state.chemistry} onChange={this.handleChange} /><br />
+         Biology <input type="number" name="biology" value={this.state.biology} onChange={this.handleChange} /><br />
+         Mathematics <input type="number" name="mathematics" value={this.state.mathematics} onChange={this.handleChange} /><br />
+         <button type="submit" onClick={this.handleSubmit} >Find Average</button>
+        </form>
+      </div>
+    )
+  }
+}
+
+export default App

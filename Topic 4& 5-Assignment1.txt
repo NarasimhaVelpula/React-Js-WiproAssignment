@@ -1,0 +1,40 @@
+import React, { Component } from 'react'
+
+export class App extends Component {
+   Students=[{StudentId:1,StudentName:"Narasimha",StudentMarks:90},
+              {StudentId:2,StudentName:"Surya",StudentMarks:100},
+              {StudentId:3,StudentName:"Arun",StudentMarks:95}
+  ]
+
+  render(){
+    return(
+    <>
+    <Heading></Heading>
+    <Details students={this.Students} />
+    </>
+    )
+  }
+}
+
+class Heading extends Component{
+  render(){
+    return(
+      <h1>StudentDetails</h1>
+    )
+  }
+}
+class Details extends Component{
+  render(){
+    return(
+    <table style={{border:"1px solid black"}}>
+      <tbody>
+      <tr style={{backgroundColor:"yellow"}}><th>Student ID</th><th>Student Name</th><th>Student Marks</th></tr>
+      {this.props.students.map(student=>{
+        return(<tr><td>{student.StudentId}</td><td>{student.StudentName}</td><td>{student.StudentMarks}</td></tr>)
+      })}
+      </tbody>
+    </table>
+  
+    )}
+}
+export default App

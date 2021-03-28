@@ -1,0 +1,30 @@
+import React, { Component } from 'react'
+
+export class App extends Component {
+  render() {
+    const employees=[{"employeeId":1,"employeeName":"Narasimha","employeeEmailId":"narasimha@wipro.com"},
+                      {"employeeId":2,"employeeName":"Surya","employeeEmailId":"surya@wipro.com"},
+                    {"employeeId":3,"employeeName":"Arun","employeeEmailId":"arun@wipro.com"}
+                    ]
+    return (
+        <>
+          <Heading />
+          <table>
+            <tr ><th>Employee Id</th><th>Employee Name</th><th>Employee Email Id</th></tr>
+              {employees.map(emp=>{
+                return(<tr><td>{emp.employeeId}</td><td>{emp.employeeName}</td><td>{emp.employeeEmailId}</td></tr>)
+              })}
+          </table>
+        </>
+    )
+  }
+}
+
+class Heading extends Component{
+  render(){
+    return(
+      <h1>Employee Details</h1>
+    )
+  }
+}
+export default App
